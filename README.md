@@ -1,8 +1,6 @@
 This 'guide' assumes that the Desktop version of Raspberry Pi OS is being used and the onboarding setup has been done.
 Tested on a Raspberry Pi 400.
 
-To login to custom SSH port use: ssh pi@192.168.1.xx -p XXXXX
-
 # Goals
 - Pi's home folder has more restricted permissions
 - Sudo requires password
@@ -13,6 +11,8 @@ To login to custom SSH port use: ssh pi@192.168.1.xx -p XXXXX
 - 4K 60Hz and GPU memory reserved
 
 # Base setup
+To login to custom SSH port use: ssh pi@192.168.1.xx -p XXXXX
+
 ```
 # Update Raspberry Pi OS
 sudo apt update
