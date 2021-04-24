@@ -70,7 +70,7 @@ gpu_mem=256
 EOF
 ```
 
-# Steam link and Kodi
+# Steam Link and Kodi
 ```
 sudo apt -y install steamlink
 ```
