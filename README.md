@@ -1,4 +1,4 @@
-This 'guide' assumes that the Desktop version of Raspberry Pi OS is being used and the setup onboarding has been done.
+This 'guide' assumes that the Desktop version of Raspberry Pi OS is being used and the onboarding setup has been done.
 Tested on a Raspberry Pi 400.
 
 To login to custom SSH port use: ssh pi@192.168.1.xx -p XXXXX
