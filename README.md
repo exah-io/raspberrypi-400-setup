@@ -68,6 +68,10 @@ sudo tee -a /boot/config.txt << EOF
 hdmi_enable_4kp60=1
 gpu_mem=256
 EOF
+
+# Setup automatic updates
+sudo apt-get install -y unattended-upgrades apt-listchanges
+sudo dpkg-reconfigure -plow unattended-upgrades
 ```
 
 # Steam Link and Kodi
