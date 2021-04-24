@@ -74,6 +74,16 @@ sudo apt-get install -y unattended-upgrades apt-listchanges
 sudo dpkg-reconfigure -plow unattended-upgrades
 ```
 
+# Syncthing
+```
+sudo apt -y install syncthing
+sudo systemctl enable syncthing@pi.service
+sudo systemctl start syncthing@pi.service
+sudo ufw allow from 192.168.1.0/24 to any port 22000 proto tcp
+sudo ufw allow from 192.168.1.0/24 to any port 21027 proto udp
+```
+
+
 # Steam Link and Kodi
 ```
 sudo apt -y install steamlink
