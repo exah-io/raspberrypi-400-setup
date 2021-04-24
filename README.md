@@ -3,7 +3,7 @@ Tested on a Raspberry Pi 400.
 
 To login to custom SSH port use: ssh pi@192.168.1.xx -p XXXXX
 
-# Setup:
+# Goals
 - Pi's home folder has more restricted permissions
 - Sudo requires password
 - UFW with incoming traffic blocked, except the custom SSH port
@@ -12,6 +12,7 @@ To login to custom SSH port use: ssh pi@192.168.1.xx -p XXXXX
 - Apparmor
 - 4K 60Hz and GPU memory reserved
 
+# Base setup
 ```
 # Update Raspberry Pi OS
 sudo apt update
@@ -67,4 +68,9 @@ sudo tee -a /boot/config.txt << EOF
 hdmi_enable_4kp60=1
 gpu_mem=256
 EOF
+```
+
+# Steam link and Kodi
+```
+sudo apt -y install steamlink
 ```
