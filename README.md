@@ -1,7 +1,7 @@
 This 'guide' assumes that the Desktop version of Raspberry Pi OS is being used and the onboarding setup has been done.
 Tested on a Raspberry Pi 400.
 
-# Goals
+# Setup
 - Pi's home folder has more restricted permissions
 - Sudo requires password
 - UFW with incoming traffic blocked, except the custom SSH port
@@ -87,4 +87,27 @@ sudo ufw allow from 192.168.1.0/24 to any port 21027 proto udp
 # Steam Link and Kodi
 ```
 sudo apt -y install steamlink
+
+sudo apt-get install -y kodi
+sudo useradd -m -U -G "audio,bluetooth,input,plugdev,video" -s /bin/bash -u 1040 kodi
+cat <<EOF | sudo tee /etc/systemd/system/kodi.service
+[Unit]
+Description = Kodi Media Center
+After = systemd-user-sessions.service network.target sound.target
+
+[Service]
+User = kodi
+Group = kodi
+Type = simple
+ExecStart = /usr/bin/kodi
+Restart = always
+RestartSec = 15
+
+[Install]
+WantedBy = multi-user.target
+EOF
+
+sudo systemctl daemon-reload
+sudo systemctl enable kodi
+sudo systemctl start kodi
 ```
