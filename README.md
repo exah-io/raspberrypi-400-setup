@@ -111,3 +111,11 @@ sudo systemctl daemon-reload
 sudo systemctl enable kodi
 sudo systemctl start kodi
 ```
+
+# Misc
+## Issues with PS4 controller pairing via bluetooth:
+There seems to be an issue with the currently installed version. Changing versions works till a newer version is available:
+```
+sudo apt install bluez=5.50-1.2~deb10u1
+sudo apt-mark hold bluez
+```
