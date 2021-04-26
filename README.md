@@ -85,7 +85,7 @@ sudo ufw allow from 192.168.1.0/24 to any port 21027 proto udp
 
 # Steam Link and Kodi
 ```
-sudo apt -y install steamlink
+sudo apt -y install steamlink joystick
 
 sudo apt-get install -y kodi
 sudo useradd -m -U -G "audio,bluetooth,input,plugdev,video" -s /bin/bash -u 1040 kodi
@@ -113,7 +113,7 @@ sudo systemctl start kodi
 
 # Misc
 ## Issues with PS4 controller pairing via bluetooth:
-There seems to be an issue with the currently installed version. Changing versions works till a newer version is available:
+There seems to be an issue with the currently installed version. Changing versions seems to work (TBC):
 ```
 sudo apt install bluez=5.50-1.2~deb10u1
 sudo apt-mark hold bluez
