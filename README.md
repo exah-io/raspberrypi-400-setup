@@ -8,7 +8,7 @@ Tested on a Raspberry Pi 400.
 - SSH with custom port and password auth disabled
 - fail2ban
 - Apparmor
-- 4K 60Hz and GPU memory reserved
+- GPU memory: 256MB reserved
 
 # Base setup
 To login to custom SSH port use: ssh pi@192.168.1.xx -p XXXXX
@@ -60,12 +60,11 @@ ssh-copy-id pi@192.168.1.xx
 sudo apt -y install apparmor
 sudo sed -i 's/plymouth.ignore-serial-consoles/plymouth.ignore-serial-consoles lsm=apparmor/g' /boot/cmdline.txt
 
-# Enable 4K 60Hz and reserve memory for GPU
+# Enable reserve memory for GPU
 # 4K 60Hz ref: https://www.raspberrypi.org/documentation/configuration/hdmi-config.md
 # Memory reserve ref: https://www.raspberrypi.org/documentation/configuration/config-txt/memory.md
 sudo tee -a /boot/config.txt << EOF
 
-hdmi_enable_4kp60=1
 gpu_mem=256
 EOF
 
