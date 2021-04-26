@@ -87,7 +87,7 @@ sudo ufw allow from 192.168.1.0/24 to any port 21027 proto udp
 ```
 sudo apt -y install steamlink joystick
 
-sudo apt-get install -y kodi
+sudo apt-get install -y kodi kodi-peripheral-joystick
 sudo useradd -m -U -G "audio,bluetooth,input,plugdev,video" -s /bin/bash -u 1040 kodi
 cat <<EOF | sudo tee /etc/systemd/system/kodi.service
 [Unit]
