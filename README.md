@@ -85,6 +85,14 @@ sudo ufw allow from 192.168.1.0/24 to any port 22000 proto tcp
 sudo ufw allow from 192.168.1.0/24 to any port 21027 proto udp
 ```
 
+# Retropie
+```
+sudo apt -y install git lsb-release
+git clone --depth=1 https://github.com/RetroPie/RetroPie-Setup.git
+cd RetroPie-Setup
+chmod +x retropie_setup.sh
+sudo ./retropie_setup.sh
+```
 
 # Steam Link and Kodi
 ```
