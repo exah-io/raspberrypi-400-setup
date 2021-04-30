@@ -40,10 +40,10 @@ sudo systemctl restart ssh
 sudo apt -y install ufw
 sudo systemctl enable ufw
 sudo systemctl start ufw
-sudo ufw enable
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 sudo ufw limit XXXXX/tcp comment 'SSH port rate limit'
+sudo ufw enable
 
 # Setup fail2ban
 sudo apt -y install fail2ban
