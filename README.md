@@ -8,7 +8,7 @@ Tested on a Raspberry Pi 400.
 - SSH with custom port and password auth disabled
 - fail2ban
 - Apparmor (to be used with Docker profiles)
-- 256MB of memory reserved for GPU and 4K 60Hz enabled
+- 256MB of memory reserved for GPU
 
 # Base setup
 To login to custom SSH port use: ssh pi@192.168.1.xx -p XXXXX
@@ -66,12 +66,12 @@ sudo sed -i 's/rootwait/rootwait lsm=apparmor/g' /boot/cmdline.txt
 sudo apt-get install -y unattended-upgrades apt-listchanges
 sudo dpkg-reconfigure -plow unattended-upgrades
 
-# Reserve 256MB of memory for GPU and enable 4K 60Hz
+# Reserve 256MB of memory for GPU
 # 4K 60Hz ref: https://www.raspberrypi.org/documentation/configuration/hdmi-config.md
 # Memory reserve ref: https://www.raspberrypi.org/documentation/configuration/config-txt/memory.md
+# HDMI configurations: https://www.raspberrypi.org/documentation/configuration/config-txt/video.md
 sudo tee -a /boot/config.txt << EOF
 
-hdmi_enable_4kp60=1
 gpu_mem=256
 EOF
 ```
