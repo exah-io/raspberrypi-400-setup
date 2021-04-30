@@ -34,7 +34,7 @@ sudo sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh
 sudo sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
 sudo sed -i 's/#Port 22/Port XXXXX/g' /etc/ssh/sshd_config
 sudo systemctl enable ssh
-sudo systemctl start ssh
+sudo systemctl restart ssh
 
 # Install and setup firewall (UFW)
 sudo apt -y install ufw
