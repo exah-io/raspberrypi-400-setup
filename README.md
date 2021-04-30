@@ -8,7 +8,7 @@ Tested on a Raspberry Pi 400.
 - SSH with custom port and password auth disabled
 - fail2ban
 - Apparmor (to be used with Docker profiles)
-- 256MB reserved for GPU and 4K 60Hz enabled
+- 256MB of memory reserved for GPU and 4K 60Hz enabled
 
 # Base setup
 To login to custom SSH port use: ssh pi@192.168.1.xx -p XXXXX
