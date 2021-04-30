@@ -27,7 +27,7 @@ sudo sed -i 's/NOPASSWD/PASSWD/g' /etc/sudoers.d/010_pi-nopasswd
 
 # Copy SSH public key to RPi (run ip -a to confirm IP)
 sudo systemctl start ssh
-ssh-copy-id pi@192.168.1.xx
+[run from client] ssh-copy-id pi@192.168.1.xx
 
 # Disable SSH login with password, change SSH port and enable the service
 sudo sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config
