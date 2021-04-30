@@ -7,8 +7,7 @@ Tested on a Raspberry Pi 400.
 - UFW with incoming traffic blocked, except the custom SSH port
 - SSH with custom port and password auth disabled
 - fail2ban
-- Apparmor
-- GPU memory: 256MB reserved
+- Apparmor (to be used with Docker profiles)
 
 # Base setup
 To login to custom SSH port use: ssh pi@192.168.1.xx -p XXXXX
