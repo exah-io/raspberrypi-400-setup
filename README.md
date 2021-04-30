@@ -30,6 +30,7 @@ sudo systemctl start ssh
 ssh-copy-id pi@192.168.1.xx
 
 # Install and setup firewall (UFW)
+sudo apt -y install ufw
 sudo systemctl enable ufw
 sudo systemctl start ufw
 sudo ufw enable
