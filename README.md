@@ -1,4 +1,4 @@
-This 'guide' assumes that the Desktop version of Raspberry Pi OS is being used and the onboarding setup has been done.
+This 'guide' assumes that the lite version (no desktop) of Raspberry Pi OS is being used.
 Tested on a Raspberry Pi 400.
 
 # Setup
