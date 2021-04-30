@@ -25,6 +25,10 @@ sudo chmod -R 750 /home/pi
 # Make sudo require a password
 sudo sed -i 's/NOPASSWD/PASSWD/g' /etc/sudoers.d/010_pi-nopasswd
 
+# Copy SSH public key to RPi (run ip -a to confirm IP)
+sudo systemctl start ssh
+ssh-copy-id pi@192.168.1.xx
+
 # Install and setup firewall (UFW)
 sudo systemctl enable ufw
 sudo systemctl start ufw
@@ -52,9 +56,6 @@ logpath  = /var/log/auth.log
 maxretry = 3
 bantime = -1
 EOF
-
-# Copy SSH public key to RPi (run ip -a to confirm IP)
-ssh-copy-id pi@192.168.1.xx
 
 # Install apparmor and enable it
 sudo apt -y install apparmor
