@@ -29,6 +29,13 @@ sudo sed -i 's/NOPASSWD/PASSWD/g' /etc/sudoers.d/010_pi-nopasswd
 sudo systemctl start ssh
 ssh-copy-id pi@192.168.1.xx
 
+# Disable SSH login with password, change SSH port and enable the service
+sudo sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config
+sudo sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
+sudo sed -i 's/#Port 22/Port XXXXX/g' /etc/ssh/sshd_config
+sudo systemctl enable ssh
+sudo systemctl start ssh
+
 # Install and setup firewall (UFW)
 sudo apt -y install ufw
 sudo systemctl enable ufw
@@ -37,13 +44,6 @@ sudo ufw enable
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 sudo ufw limit XXXXX/tcp comment 'SSH port rate limit'
-
-# Disable SSH login with password, change SSH port and enable the service
-sudo sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config
-sudo sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config
-sudo sed -i 's/#Port 22/Port XXXXX/g' /etc/ssh/sshd_config
-sudo systemctl enable ssh
-sudo systemctl start ssh
 
 # Setup fail2ban
 sudo apt -y install fail2ban
