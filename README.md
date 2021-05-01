@@ -14,6 +14,13 @@ Tested on a Raspberry Pi 400.
 To login to custom SSH port use: ssh pi@192.168.1.xx -p XXXXX
 
 ```
+# Copy SSH public key to RPi (run ip -a to confirm IP)
+sudo systemctl start ssh
+[run from client] ssh-copy-id pi@192.168.1.xx
+
+# Change pi password
+sudo passwd pi
+
 # Update Raspberry Pi OS
 sudo apt update
 sudo apt full-upgrade
@@ -24,10 +31,6 @@ sudo chmod -R 750 /home/pi
 
 # Make sudo require a password
 sudo sed -i 's/NOPASSWD/PASSWD/g' /etc/sudoers.d/010_pi-nopasswd
-
-# Copy SSH public key to RPi (run ip -a to confirm IP)
-sudo systemctl start ssh
-[run from client] ssh-copy-id pi@192.168.1.xx
 
 # Disable SSH login with password, change SSH port and enable the service
 sudo sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config
@@ -85,15 +88,6 @@ sudo ufw allow from 192.168.1.0/24 to any port 22000 proto tcp
 sudo ufw allow from 192.168.1.0/24 to any port 21027 proto udp
 ```
 
-# Retropie
-```
-sudo apt -y install git lsb-release
-git clone --depth=1 https://github.com/RetroPie/RetroPie-Setup.git
-cd RetroPie-Setup
-chmod +x retropie_setup.sh
-sudo ./retropie_setup.sh
-```
-
 # Steam Link and Kodi
 ```
 sudo apt -y install steamlink joystick
@@ -109,7 +103,7 @@ After = systemd-user-sessions.service network.target sound.target
 User = kodi
 Group = kodi
 Type = simple
-ExecStart = /usr/bin/kodi
+ExecStart = /usr/bin/kodi-standalone
 Restart = always
 RestartSec = 15
 
