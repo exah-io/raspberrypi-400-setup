@@ -93,38 +93,22 @@ sudo ufw allow from 192.168.1.0/24 to any port 22000 proto tcp
 sudo ufw allow from 192.168.1.0/24 to any port 21027 proto udp
 ```
 
-# Steam Link and Kodi
+# Steam Link
 ```
-sudo apt -y install steamlink joystick
-
-sudo apt-get install -y kodi kodi-peripheral-joystick
-sudo useradd -m -U -G "audio,bluetooth,input,plugdev,video" -s /bin/bash -u 1040 kodi
-cat <<EOF | sudo tee /etc/systemd/system/kodi.service
-[Unit]
-Description = Kodi Media Center
-After = systemd-user-sessions.service network.target sound.target
-
-[Service]
-User = kodi
-Group = kodi
-Type = simple
-ExecStart = /usr/bin/kodi-standalone
-Restart = always
-RestartSec = 15
-
-[Install]
-WantedBy = multi-user.target
+sudo apt -y install steamlink
+sudo tee -a /etc/xdg/lxsession/LXDE-pi/autostart << EOF
+@steamlink
 EOF
-
-sudo systemctl daemon-reload
-sudo systemctl enable kodi
-sudo systemctl start kodi
 ```
 
 # Misc
-## Issues with PS4 controller pairing via bluetooth:
-There seems to be an issue with the currently installed version. Changing versions seems to work (TBC):
+## Bluetooth connections
 ```
-sudo apt install bluez=5.50-1.2~deb10u1
-sudo apt-mark hold bluez
+bluetoothctl
+power on
+agent on
+scan on
+# place PS4 controller in pairing mode
+connect %MAC% / pair %MAC%
+trust %MAC%
 ```
