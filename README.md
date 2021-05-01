@@ -85,6 +85,15 @@ EOF
 sudo sed -i 's/bluetooth\/bluetoothd/bluetooth\/bluetoothd --noplugin=sap/g' /etc/systemd/system/bluetooth.target.wants/bluetooth.service
 sudo systemctl daemon-reload
 sudo service bluetooth restart
+
+# Power on bluetooth on startup (should be the case by default, but it's not working)
+sudo sed -i '/exit/d' /etc/rc.local
+sudo tee -a /etc/rc.local << EOF
+hciconfig hci0 up
+systemctl restart bluetooth
+
+exit 0
+EOF
 ```
 
 # Syncthing
