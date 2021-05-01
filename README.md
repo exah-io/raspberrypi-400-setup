@@ -1,4 +1,4 @@
-This 'guide' assumes that the lite version (no desktop) of Raspberry Pi OS is being used.
+This 'guide' assumes that the desktop of Raspberry Pi OS is being used.
 Tested on a Raspberry Pi 400.
 
 # Setup
@@ -63,7 +63,7 @@ EOF
 
 # Install apparmor and enable it
 sudo apt -y install apparmor
-sudo sed -i 's/rootwait/rootwait lsm=apparmor/g' /boot/cmdline.txt
+sudo sed -i 's/rootwait/rootwait lsm=apparmor /g' /boot/cmdline.txt
 
 # Setup automatic updates
 sudo apt-get install -y unattended-upgrades apt-listchanges
@@ -77,6 +77,9 @@ sudo tee -a /boot/config.txt << EOF
 
 gpu_mem=256
 EOF
+
+# Disabling SAP plugin (bluetooth)
+sudo sed -i 's/bluetooth\/bluetoothd/bluetooth\/bluetoothd --noplugin=sap/g' /etc/systemd/system/bluetooth.target.wants/bluetooth.service
 ```
 
 # Syncthing
