@@ -63,7 +63,7 @@ EOF
 
 # Install apparmor and enable it
 sudo apt -y install apparmor
-sudo sed -i 's/rootwait/rootwait lsm=apparmor /g' /boot/cmdline.txt
+sudo sed -i 's/rootwait/rootwait lsm=apparmor/g' /boot/cmdline.txt
 
 # Setup automatic updates
 sudo apt-get install -y unattended-upgrades apt-listchanges
