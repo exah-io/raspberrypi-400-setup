@@ -80,6 +80,8 @@ EOF
 
 # Disabling SAP plugin (bluetooth)
 sudo sed -i 's/bluetooth\/bluetoothd/bluetooth\/bluetoothd --noplugin=sap/g' /etc/systemd/system/bluetooth.target.wants/bluetooth.service
+sudo systemctl daemon-reload
+sudo service bluetooth restart
 ```
 
 # Syncthing
