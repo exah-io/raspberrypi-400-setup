@@ -18,9 +18,6 @@ To login to custom SSH port use: ssh pi@192.168.1.xx -p XXXXX
 sudo systemctl start ssh
 [run from client] ssh-copy-id pi@192.168.1.xx
 
-# Change hostname
-sudo sed -i 's/raspberrypi/pi400/g' /etc/hosts
-
 # Change pi password
 sudo passwd pi
 
