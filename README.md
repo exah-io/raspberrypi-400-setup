@@ -110,6 +110,22 @@ sudo tee -a /etc/xdg/lxsession/LXDE-pi/autostart << EOF
 EOF
 ```
 
+# Docker
+```
+# Install docker
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+rm get-docker.sh
+
+# Manage Docker as a non-root user
+sudo groupadd docker
+sudo usermod -aG docker pi
+newgrp docker
+
+# Test Docker installation
+docker run hello-world
+```
+
 # Misc
 ## Bluetooth connections
 ```
