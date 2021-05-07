@@ -1,7 +1,9 @@
 This 'guide' assumes that the desktop of Raspberry Pi OS is being used.
 Tested on a Raspberry Pi 400.
 
-# Setup
+# Base setup
+To login to custom SSH port use: ssh pi@192.168.1.xx -p XXXXX
+
 - Pi's home folder has more restricted permissions
 - Sudo requires password
 - UFW with incoming traffic blocked, except the custom SSH port
@@ -9,9 +11,6 @@ Tested on a Raspberry Pi 400.
 - fail2ban
 - Apparmor (to be used with Docker profiles)
 - 256MB of memory reserved for GPU
-
-# Base setup
-To login to custom SSH port use: ssh pi@192.168.1.xx -p XXXXX
 
 ```
 # Copy SSH public key to RPi (run ip -a to confirm IP)
