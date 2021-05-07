@@ -124,6 +124,17 @@ newgrp docker
 
 # Test Docker installation
 docker run hello-world
+
+# Install docker-compose
+sudo apt -y install libffi-dev 
+sudo pip3 install docker-compose
+
+# Create new bridge network
+docker network create web
+
+# Allow incoming traffic on ports 80 and 443
+sudo ufw allow 443/tcp
+sudo ufw allow 80/tcp
 ```
 
 # Misc
