@@ -97,8 +97,8 @@ EOF
 sudo apt -y install syncthing
 sudo systemctl enable syncthing@pi.service
 sudo systemctl start syncthing@pi.service
-sudo ufw allow from 192.168.1.0/24 to any port 22000 proto tcp
-sudo ufw allow from 192.168.1.0/24 to any port 21027 proto udp
+sudo ufw allow from 192.168.1.0/24 to any port 22000 proto tcp comment 'syncthing'
+sudo ufw allow from 192.168.1.0/24 to any port 21027 proto udp comment 'syncthing'
 ```
 
 # Steam Link
