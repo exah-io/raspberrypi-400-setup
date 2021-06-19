@@ -26,7 +26,9 @@ sudo apt full-upgrade
 sudo reboot
 
 # Restrict default user's home directory so that other users/groups cannot read pi's home folder
-sudo chmod -R 750 /home/pi
+sudo chmod 750 /home/*
+sudo sed -i s/DIR_MODE=0755/DIR_MODE=0750/ /etc/adduser.conf
+echo "HOME_MODE 0750" | sudo tee -a /etc/login.defs
 
 # Make sudo require a password
 sudo sed -i 's/NOPASSWD/PASSWD/g' /etc/sudoers.d/010_pi-nopasswd
